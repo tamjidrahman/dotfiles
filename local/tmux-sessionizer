@@ -19,10 +19,21 @@ selected_name=$(basename "$selected" | tr . _)
 # Check if tmux is running by looking for the tmux process
 tmux_running=$(pgrep tmux)
 
+# Function to determine the startup command
+get_startup_command() {
+    if [[ -f "$selected/poetry.lock" ]]; then
+      # If the selected directory contains a poetry.lock file, activate the poetry environment
+      echo 'source "$(poetry env list --full-path | grep Activated | cut -d" " -f1)/bin/activate" && vim'
+    else
+      # Fallback to just opening vim
+      echo "vim"
+    fi
+}
 # If a tmux session with the selected name does not already exist, create a detached session
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
-    tmux send-keys -t $selected_name "vim" C-m
+    startup_command=$(get_startup_command)
+    tmux send-keys -t $selected_name "$startup_command" C-m
 fi
 
 # Function to prompt the user
