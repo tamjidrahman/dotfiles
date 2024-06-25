@@ -19,17 +19,39 @@ selected_name=$(basename "$selected" | tr . _)
 # Check if tmux is running by looking for the tmux process
 tmux_running=$(pgrep tmux)
 
-# If not inside a tmux session and tmux is not running, start a new tmux session
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected  # Start a new tmux session
-    exit 0
-fi
-
 # If a tmux session with the selected name does not already exist, create a detached session
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
 fi
 
-# Switch to the tmux session with the selected name
-tmux switch-client -t $selected_name
+# Function to prompt the user
+prompt_detach() {
+    while true; do
+        read -p "Do you want to detach others from the tmux session? (y/n): " yn
+        case $yn in
+            [Yy]* ) return 0;;
+            [Nn]* ) return 1;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+}
 
+# Check if others are attached to the tmux session
+others_attached() {
+    attached_count=$(tmux list-clients -t $selected_name | wc -l)
+    echo "There are $attached_count other client(s) connected to the tmux session."
+    (( $attached_count > 0 ))
+}
+
+# Main logic to attach or switch to the tmux session
+if others_attached && ! prompt_detach; then
+    exit 0
+else
+    if [[ -z $TMUX ]]; then
+        # Not inside a tmux session
+        tmux attach-session -d -t $selected_name
+    else
+        # Inside a tmux session
+        tmux switch-client -t $selected_name
+    fi
+fi
