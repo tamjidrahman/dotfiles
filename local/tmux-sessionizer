@@ -1,25 +1,35 @@
 #!/usr/bin/env bash
 
+# Check if a command-line argument is provided
 if [[ $# -eq 1 ]]; then
-    selected=$1
+    selected=$1  # Use the provided argument as the selected directory
 else
+    # Use fzf to select a directory from ~/src if no argument is provided
     selected=$(find ~/src -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
+# If no directory is selected, exit the script
 if [[ -z $selected ]]; then
     exit 0
 fi
 
+# Get the base name of the selected directory and replace dots with underscores
 selected_name=$(basename "$selected" | tr . _)
+
+# Check if tmux is running by looking for the tmux process
 tmux_running=$(pgrep tmux)
 
+# If not inside a tmux session and tmux is not running, start a new tmux session
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+    tmux new-session -s $selected_name -c $selected  # Start a new tmux session
     exit 0
 fi
 
+# If a tmux session with the selected name does not already exist, create a detached session
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
 fi
 
+# Switch to the tmux session with the selected name
 tmux switch-client -t $selected_name
+
