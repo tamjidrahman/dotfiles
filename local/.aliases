@@ -1,0 +1,13 @@
+# Function to list directories in /src and cd into the selected one
+repo() {
+    ~/tmux-sessionizer
+}
+
+source <(fzf --zsh)
+
+alias vim="nvim"
+alias vi="nvim"
+
+alias c="clear"
+
+alias air='$(go env GOPATH)/bin/air'
