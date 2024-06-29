@@ -111,3 +111,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # ----- Bat (better cat) -----
 export BAT_THEME=tokyonight_night
+
+# ----- FZF install -----
+eval "$(fzf --zsh)"
