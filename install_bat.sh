@@ -28,3 +28,5 @@ fi
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cp -R "$SCRIPT_DIR"/bat "$DIR"
+
+bat cache --build
