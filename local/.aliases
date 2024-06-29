@@ -7,3 +7,10 @@ alias vim="nvim"
 alias vi="nvim"
 
 alias c="clear"
+
+# ---- Eza (better ls) -----
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+
+# ---- Bat (better cat) -----
+alias cat="bat"
+
