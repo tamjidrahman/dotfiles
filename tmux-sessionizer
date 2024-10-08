@@ -36,7 +36,7 @@ get_startup_command() {
 }
 # If a tmux session with the selected name does not already exist, create a detached session
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds "$selected_name" -c "$(echo $selected | sed 's/ /\\ /g')" # escape spaces
+    tmux new-session -ds "$selected_name" -c "$selected" # escape spaces
     startup_command=$(get_startup_command)
     tmux send-keys -t $selected_name "$startup_command" C-m
 fi
