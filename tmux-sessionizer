@@ -39,6 +39,10 @@ if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds "$selected_name" -c "$selected" # escape spaces
     startup_command=$(get_startup_command)
     tmux send-keys -t $selected_name "$startup_command" C-m
+    # Open a new window (tab) in the same session with no commands run
+    tmux new-window -t "$selected_name"
+    # Select the first window (window 0) in the session
+    tmux select-window -t "$selected_name:0"
 fi
 # Function to prompt the user
 prompt_detach() {
