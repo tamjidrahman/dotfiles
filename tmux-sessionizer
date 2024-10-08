@@ -4,10 +4,15 @@
 if [[ $# -eq 1 ]]; then
     selected=$1  # Use the provided argument as the selected directory
 else
-    # Use fzf to select a directory from ~/src if no argument is provided
-    selected=$(find ~/src -mindepth 1 -maxdepth 1 -type d | fzf)
-fi
+  # Define an array with directories
+  directories=(
+      ~/src
+      ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents
+  )
 
+  # Use find to search within these directories
+  selected=$(find "${directories[@]}" -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
 # If no directory is selected, exit the script
 if [[ -z $selected ]]; then
     exit 0
@@ -31,11 +36,10 @@ get_startup_command() {
 }
 # If a tmux session with the selected name does not already exist, create a detached session
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+    tmux new-session -ds "$selected_name" -c "$(echo $selected | sed 's/ /\\ /g')" # escape spaces
     startup_command=$(get_startup_command)
     tmux send-keys -t $selected_name "$startup_command" C-m
 fi
-
 # Function to prompt the user
 prompt_detach() {
     while true; do

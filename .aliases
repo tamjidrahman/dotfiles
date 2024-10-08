@@ -13,4 +13,3 @@ alias ls="eza -a --color=always --long --git --no-filesize --icons=always --no-t
 
 # ---- Bat (better cat) -----
 alias cat="bat"
-
