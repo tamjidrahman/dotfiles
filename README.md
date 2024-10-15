@@ -10,7 +10,3 @@ Run `nvim/install.sh`. WARNING: will move any existing `~/.config/nvim` to `~/.c
 - brew install stow
 - cd to root directory
 - stow --target=$HOME/ .
-
-## installation iterm2
-
-- use the `iterm2` profile in `iterm2/` directory
