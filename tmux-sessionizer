@@ -1,21 +1,92 @@
 #!/usr/bin/env bash
 
+# Function to get GitHub repositories
+get_github_repos() {
+    user=$(gh api user -q .login)
+    QUERY='
+      query($owner: String!, $endCursor: String) {
+        repositoryOwner(login: $owner) {
+          repositories(first: 100, after: $endCursor) {
+            nodes { nameWithOwner }
+            pageInfo {
+              hasNextPage
+              endCursor
+            }
+          }
+        }
+      }
+    '
+    gh api graphql --paginate -F owner="${1:-$user}" -f query="${QUERY}" --jq '.data.repositoryOwner.repositories.nodes.[].nameWithOwner'
+}
+
 # Check if a command-line argument is provided
 if [[ $# -eq 1 ]]; then
     selected=$1  # Use the provided argument as the selected directory
 else
-  # Define an array with directories
-  directories=(
-      ~/src
-      ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents
-  )
+    # Define an array with directories
+    directories=(
+        ~/src
+        ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents
+    )
 
-  # Use find to search within these directories
-  selected=$(find "${directories[@]}" -mindepth 1 -maxdepth 1 -type d | fzf)
+    # Get local directories
+    local_dirs=$(find "${directories[@]}" -mindepth 1 -maxdepth 1 -type d)
+
+    # Get GitHub repositories
+    github_repos=$(get_github_repos)
+
+    # Function to extract repository name from GitHub path
+    extract_repo_name() {
+        echo "$1" | sed 's|.*/||'
+    }
+
+    # Combine local directories and GitHub repositories
+    all_options=$(
+        (echo "$local_dirs" | sed 's|^.*/||; s/$/ (local)/';
+         echo "$github_repos" | sed 's/$/ (GH)/' ) |
+        sort | uniq |
+        awk '
+        {
+            if ($NF == "(local)") {
+                local_name = $0
+                gsub(/ \(local\)$/, "", local_name)
+                if (!(local_name in seen)) {
+                    print
+                    seen[local_name] = 1
+                }
+            } else if ($NF == "(GH)") {
+                gh_name = $0
+                gsub(/ \(GH\)$/, "", gh_name)
+                repo_name = gh_name
+                gsub(".*/", "", repo_name)
+                if (!(repo_name in seen)) {
+                    print
+                    seen[repo_name] = 1
+                }
+            }
+        }' |
+        sed 's/ (local)$//' |
+        sed 's/ (GH)$/ (GH)/'
+    )
+
+    # Use fzf to select from all options
+    selected=$(echo "$all_options" | fzf)
 fi
 # If no directory is selected, exit the script
 if [[ -z $selected ]]; then
     exit 0
+fi
+
+# Handle GitHub repository selection
+if [[ $selected == *"(GH)"* ]]; then
+    repo_name=${selected% (GH)}
+    local_path=~/src/${repo_name#*/}
+    if [ ! -d "$local_path" ]; then
+        echo "Cloning $repo_name to $local_path"
+        mkdir -p "$local_path"
+        gh repo clone "$repo_name" "$local_path"
+    fi
+    selected=$local_path
 fi
 
 # Get the base name of the selected directory and replace dots with underscores
