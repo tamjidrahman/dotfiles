@@ -1,22 +1,36 @@
 #!/usr/bin/env bash
 
+# Function to check if user is authenticated with GitHub
+is_github_authenticated() {
+    if gh auth status &>/dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 # Function to get GitHub repositories
 get_github_repos() {
-    user=$(gh api user -q .login)
-    QUERY='
-      query($owner: String!, $endCursor: String) {
-        repositoryOwner(login: $owner) {
-          repositories(first: 100, after: $endCursor) {
-            nodes { nameWithOwner }
-            pageInfo {
-              hasNextPage
-              endCursor
+    if is_github_authenticated; then
+        user=$(gh api user -q .login)
+        QUERY='
+          query($owner: String!, $endCursor: String) {
+            repositoryOwner(login: $owner) {
+              repositories(first: 100, after: $endCursor) {
+                nodes { nameWithOwner }
+                pageInfo {
+                  hasNextPage
+                  endCursor
+                }
+              }
             }
           }
-        }
-      }
-    '
-    gh api graphql --paginate -F owner="${1:-$user}" -f query="${QUERY}" --jq '.data.repositoryOwner.repositories.nodes.[].nameWithOwner'
+        '
+        gh api graphql --paginate -F owner="${1:-$user}" -f query="${QUERY}" --jq '.data.repositoryOwner.repositories.nodes.[].nameWithOwner'
+    else
+        echo "Warning: Not authenticated with GitHub. GitHub repositories will not be included." >&2
+        echo ""
+    fi
 }
 
 # Check if a command-line argument is provided
