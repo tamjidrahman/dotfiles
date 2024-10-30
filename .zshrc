@@ -91,6 +91,6 @@ export BAT_THEME=tokyonight_night
 alias ls="eza --icons=always"
 
 source ~/.aliases
-source ~/.secrets
+[ -f ~/.secrets ] && source ~/.secrets
 
 export PATH="/Users/tamjidrahman/.local/bin:$PATH"
