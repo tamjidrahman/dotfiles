@@ -92,3 +92,5 @@ alias ls="eza --icons=always"
 
 source ~/.aliases
 source ~/.secrets
+
+export PATH="/Users/tamjidrahman/.local/bin:$PATH"
