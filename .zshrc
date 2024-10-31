@@ -94,3 +94,10 @@ source ~/.aliases
 [ -f ~/.secrets ] && source ~/.secrets
 
 export PATH="/Users/tamjidrahman/.local/bin:$PATH"
+
+
+# ---- Repo - autocomplete ----
+source ~/.local/bin/repo
+
+# ---- Session - autocomplete ----
+source ~/.local/bin/session-completion.sh

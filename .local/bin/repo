@@ -1,0 +1,24 @@
+#!/bin/bash
+
+repo() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: repo <repository_name>"
+        return 1
+    fi
+    echo session "$1" "~/src/$1/" "nvim" "ls"
+    session "$1" ~/src/"$1"/ "nvim" "ls"
+}
+
+_repo_autocomplete() {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(find ~/src -maxdepth 1 -type d -exec basename {} \; | sed '1d')" -- "$cur") )
+}
+
+# Check if the script is being sourced
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    # If the script is executed directly, run the repo function
+    repo "$@"
+else
+    # If the script is sourced, set up the completion
+    complete -F _repo_autocomplete repo
+fi

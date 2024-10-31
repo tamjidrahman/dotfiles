@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+session media "$HOME" "spotify_player"

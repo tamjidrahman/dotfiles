@@ -1,15 +1,3 @@
-# Function to list directories in /src and cd into the selected one
-repo() {
-    tmux-sessionizer "$@"
-}
-
-_repo_autocomplete() {
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(find ~/src -maxdepth 1 -type d -exec basename {} \; | sed '1d')" -- $cur) )
-}
-
-complete -F _repo_autocomplete repo
-
 alias vim="nvim"
 alias vi="nvim"
 
@@ -20,3 +8,45 @@ alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time
 
 # ---- Bat (better cat) -----
 alias cat="bat"
+# ---- HOME ----
+# -SONOS CLI https://github.com/avantrec/soco-cli?tab=readme-ov-file#grouping-and-stereo-pairing
+sn() {
+    local action="$1"
+    shift
+
+    case "$action" in
+            "group"|"g")
+                sonos "Living Room" multi_group "Dining Room" "Kitchen"
+                ;;
+            "ungroup"|"ug")
+                sonos "Dining Room" ungroup
+                sonos "Kitchen" ungroup
+                ;;
+            "play"|"p")
+                sonos "Living Room" play
+                ;;
+            "pause"|"ps")
+                sonos "Living Room" pause
+                ;;
+            "stop"|"s")
+                sonos "Living Room" stop
+                ;;
+            "next"|"n")
+                sonos "Living Room" next
+                ;;
+            "previous"|"prev")
+                sonos "Living Room" previous
+                ;;
+            *)
+                echo "Usage: sn [group|g|ungroup|ug|play|p|pause|ps|stop|s|next|n|previous|prev]"
+                return 1
+                ;;
+    esac
+}
+
+_sn_autocomplete() {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "group ungroup play pause stop next previous" -- $cur) )
+}
+
+complete -F _sn_autocomplete sn

@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# Function to handle single argument case
+handle_single_argument() {
+    local session_name=$1
+    if tmux has-session -t="$session_name" 2> /dev/null; then
+        if [[ -z $TMUX ]]; then
+            tmux attach-session -t "$session_name"
+        else
+            tmux switch-client -t "$session_name"
+        fi
+    else
+        echo "Error: No tmux session named '$session_name' exists."
+        echo "Usage: $0 <session_name> [<directory> <command1> [<command2> ...]]"
+        exit 1
+    fi
+}
+
+# Check if the correct number of arguments is provided
+if [[ $# -eq 1 ]]; then
+    handle_single_argument "$1"
+    exit 0
+elif [[ $# -lt 3 ]]; then
+    echo "Usage: $0 <session_name> [<directory> <command1> [<command2> ...]]"
+    exit 1
+fi
+
+# Parse arguments
+session_name=$1
+selected=$2
+shift 2
+commands=("$@")
+
+# Check if the directory exists
+if [[ ! -d "$selected" ]]; then
+    echo "Error: Directory '$selected' does not exist."
+    exit 1
+fi
+
+# Check if tmux is running by looking for the tmux process
+tmux_running=$(pgrep tmux)
+
+# If a tmux session with the given name does not already exist, create a detached session
+if ! tmux has-session -t="$session_name" 2> /dev/null; then
+    tmux new-session -ds "$session_name" -c "$selected"
+    
+    # Create windows and run commands
+    for i in "${!commands[@]}"; do
+        if [[ $i -eq 0 ]]; then
+            # For the first command, use the existing window
+            tmux send-keys -t "$session_name:0" "${commands[$i]}" C-m
+        else
+            # For subsequent commands, create new windows
+            tmux new-window -t "$session_name" -c "$selected"
+            tmux send-keys -t "$session_name:$i" "${commands[$i]}" C-m
+        fi
+    done
+    
+    # Select the first window (window 0) in the session
+    tmux select-window -t "$session_name:0"
+fi
+# Function to prompt the user
+prompt_detach() {
+    while true; do
+        read -p "Do you want to detach others from the tmux session? (y/n): " yn
+        case $yn in
+            [Yy]* ) return 0;;
+            [Nn]* ) return 1;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+}
+
+# Check if others are attached to the tmux session
+others_attached() {
+    attached_count=$(tmux list-clients -t "$session_name" | wc -l)
+    echo "There are $attached_count other client(s) connected to the tmux session."
+    (( $attached_count > 0 ))
+}
+
+# Main logic to attach or switch to the tmux session
+if others_attached && ! prompt_detach; then
+    exit 0
+else
+    if [[ -z $TMUX ]]; then
+        # Not inside a tmux session
+        # Always attach to first window
+        tmux attach-session -d -t "$session_name:0"
+    else
+        # Inside a tmux session
+        # Always switch to first window
+        tmux switch-client -t "$session_name:0"
+    fi
+fi
