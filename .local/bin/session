@@ -11,17 +11,36 @@ handle_single_argument() {
         fi
     else
         echo "Error: No tmux session named '$session_name' exists."
-        echo "Usage: $0 <session_name> [<directory> <command1> [<command2> ...]]"
+        echo "Usage: $0 [--restart|-r] <session_name> [<directory> <command1> [<command2> ...]]"
         exit 1
     fi
 }
 
+# Function to handle session restart
+handle_restart() {
+    local session_name=$1
+    if tmux has-session -t="$session_name" 2> /dev/null; then
+        tmux kill-session -t "$session_name"
+        echo "Existing session '$session_name' has been terminated."
+    fi
+}
+
+# Check for restart flag
+restart_flag=false
+if [[ $1 == "--restart" || $1 == "-r" ]]; then
+    restart_flag=true
+    shift
+fi
+
 # Check if the correct number of arguments is provided
 if [[ $# -eq 1 ]]; then
+    if $restart_flag; then
+        handle_restart "$1"
+    fi
     handle_single_argument "$1"
     exit 0
 elif [[ $# -lt 3 ]]; then
-    echo "Usage: $0 <session_name> [<directory> <command1> [<command2> ...]]"
+    echo "Usage: $0 [--restart|-r] <session_name> [<directory> <command1> [<command2> ...]]"
     exit 1
 fi
 
@@ -31,6 +50,11 @@ selected=$2
 shift 2
 commands=("$@")
 
+# Handle restart if flag is set
+if $restart_flag; then
+    handle_restart "$session_name"
+fi
+
 # Check if the directory exists
 if [[ ! -d "$selected" ]]; then
     echo "Error: Directory '$selected' does not exist."
@@ -39,6 +63,7 @@ fi
 
 # Check if tmux is running by looking for the tmux process
 tmux_running=$(pgrep tmux)
+
 
 # If a tmux session with the given name does not already exist, create a detached session
 if ! tmux has-session -t="$session_name" 2> /dev/null; then

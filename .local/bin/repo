@@ -2,11 +2,20 @@
 
 repo() {
     if [ $# -eq 0 ]; then
-        echo "Usage: repo <repository_name>"
+        echo "Usage: repo <repository_name> [--restart|-r]"
         return 1
     fi
-    echo session "$1" "~/src/$1/" "nvim" "ls"
-    session "$1" ~/src/"$1"/ "nvim" "ls"
+
+    local restart_flag=""
+    if [[ "$1" == "--restart" || "$1" == "-r" ]]; then
+        restart_flag="$1"
+        shift
+    elif [[ "$2" == "--restart" || "$2" == "-r" ]]; then
+        restart_flag="$2"
+    fi
+
+    echo session $restart_flag "$1" "~/src/$1/" "nvim" "ls" 
+    session $restart_flag "$1" ~/src/"$1"/ "nvim" "ls" 
 }
 
 _repo_autocomplete() {
