@@ -1,4 +1,4 @@
-# TODO: switch from powerlevel10k to starship
+# TODO: switch from powerlevel10k to oh my posh
 
 # ---- General Configuration ----
 # Load into tmux
