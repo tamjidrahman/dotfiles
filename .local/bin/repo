@@ -4,6 +4,17 @@ get_repo_list() {
     find ~/src -maxdepth 1 -type d -exec basename {} \; | sed '1d'
 }
 
+
+get_nvim_startup_command() {
+    if [[ -f "$1/poetry.lock" ]]; then
+      # If the selected directory contains a poetry.lock file, activate the poetry environment
+      echo 'source "$(poetry env list --full-path | grep Activated | cut -d" " -f1)/bin/activate" && nvim'
+    else
+      # Fallback to just opening nvim
+      echo "nvim"
+    fi
+}
+
 repo() {
     if [ $# -eq 0 ]; then
         local selected_repo=$(get_repo_list | fzf --height 40% --reverse)
@@ -22,8 +33,9 @@ repo() {
         restart_flag="$2"
     fi
 
-    echo session $restart_flag "$1" "~/src/$1/" "nvim" "ls" 
-    session $restart_flag "$1" ~/src/"$1"/ "nvim" "ls" 
+    local nvim_command=$(get_nvim_startup_command ~/src/"$1")
+    echo session $restart_flag "$1" "~/src/$1/" "$nvim_command" "ls" 
+    session $restart_flag "$1" ~/src/"$1"/ "$nvim_command" "ls" 
 }
 
 _repo_autocomplete() {
