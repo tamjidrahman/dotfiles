@@ -1,9 +1,17 @@
 #!/bin/bash
 
+get_repo_list() {
+    find ~/src -maxdepth 1 -type d -exec basename {} \; | sed '1d'
+}
+
 repo() {
     if [ $# -eq 0 ]; then
-        echo "Usage: repo <repository_name> [--restart|-r]"
-        return 1
+        local selected_repo=$(get_repo_list | fzf --height 40% --reverse)
+        if [ -z "$selected_repo" ]; then
+            echo "No repository selected."
+            return 1
+        fi
+        set -- "$selected_repo"
     fi
 
     local restart_flag=""
@@ -20,7 +28,7 @@ repo() {
 
 _repo_autocomplete() {
     local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(find ~/src -maxdepth 1 -type d -exec basename {} \; | sed '1d')" -- "$cur") )
+    COMPREPLY=( $(compgen -W "$(get_repo_list)" -- "$cur") )
 }
 
 # Check if the script is being sourced
