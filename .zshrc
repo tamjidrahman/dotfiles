@@ -103,3 +103,7 @@ source ~/.local/bin/repo
 source ~/.local/bin/session-completion.sh
 
 
+# ---- ZSH Completions from Typer ----
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select

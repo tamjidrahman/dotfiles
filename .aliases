@@ -47,3 +47,6 @@ _sn_autocomplete() {
 }
 
 complete -F _sn_autocomplete sn
+
+# home
+alias light="home light"
