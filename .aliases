@@ -50,3 +50,5 @@ complete -F _sn_autocomplete sn
 
 # home
 alias light="home light"
+
+alias sm="session main"
