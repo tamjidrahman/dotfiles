@@ -9,8 +9,11 @@ fi
 # Set default editor
 export EDITOR=nvim
 
+export PATH="${HOME}/.local/bin:$PATH"
+
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
 # Add local bin to PATH
-export PATH="/Users/tamjidrahman/.local/bin:$PATH"
 
 # ---- Powerlevel10k ----
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
