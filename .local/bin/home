@@ -1,0 +1,6 @@
+#!/Users/tamjid/Library/Caches/pypoetry/virtualenvs/home-456qSKn3-py3.13/bin/python
+import sys
+from home import app
+
+if __name__ == '__main__':
+    sys.exit(app())
