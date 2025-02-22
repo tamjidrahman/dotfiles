@@ -1,0 +1,39 @@
+2025-02-12 08:16:53,078 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-02-12 08:16:53,080 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
+2025-02-12 08:16:53,081 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "json", --min-expiry: "3600"]
+2025-02-12 08:16:53,094 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-12 08:16:53,118 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-12 08:16:53,292 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-02-12 08:16:53,297 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-12 08:16:53,299 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-12 08:16:53,460 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-02-12 08:16:53,476 DEBUG    root            Chosen display Format:default json
+2025-02-12 08:16:53,477 INFO     root            Display format: "default json"
+2025-02-12 08:16:53,518 INFO     ___FILE_ONLY___ {
+  "configuration": {
+    "active_configuration": "default",
+    "properties": {
+      "core": {
+        "account": "tamjid.rahman@valon.com",
+        "disable_prompts": "false",
+        "disable_usage_reporting": "True",
+        "project": "prod-peach-street"
+      }
+    }
+  },
+  "credential": {
+    "access_token": "ya29.a0AXeO80T95JjH0cKcJX3-b2G4RX1kIDHSJ2tR77KEwl7dG9FBaeJgs-AiW3YSSnfj9PjK90iUhv6WKtNnjP8szVItJ_WeHTTGmp02KMUM5NjVa7Ga1Su3s-jcPJyRwrOEHav7YQyDgAL_SmBTR4B-w1Wgpi7KQ59TDM9q0WjzANpNNlMaCgYKAYwSARISFQHGX2MijwNJmQMPR2wUuaMYq6flMw0182",
+    "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImVlYzUzNGZhNWI4Y2FjYTIwMWNhOGQwZmY5NmI1NGM1NjIyMTBkMWUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNjUyNDM4NTEyNzgzNjkzMzI5IiwiaGQiOiJ2YWxvbi5jb20iLCJlbWFpbCI6InRhbWppZC5yYWhtYW5AdmFsb24uY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiI1NEdoM09aeGIySi11Ql9jd05jZjVRIiwiaWF0IjoxNzM5MzY2MjEzLCJleHAiOjE3MzkzNjk4MTN9.NoHb42JD_1O-_yF5Kn_tD6R6lymTPkQG6i3TUjbj6o-r_urTNVRjmgj5OhBXEUTL5pdXujGdPbAc5_PFVtOpAU02WMiC2k_M-dQjfGLHL7FYRX8BVC-mlYUhvb5rBsnnbiysRWADLOBF1hkiBracL6LRKFR0pH3m4ajbtP6XnHdOof2H9-WCn-rnBfsjPJiZ5FfeGlnx7Afdq9A9iNWj2FzhGQ2PtBa4Y4-rth6y8BIiYHFYEaFO7SW7o8OuiQkQPatjhZrtw8mM8bcWKfypubodmeqDFtRsia3q9KaiVUN0m7x8A7gt-69lY-Moe64Usv1A8khAduLaM3_mjxv70w",
+    "token_expiry": "2025-02-12T13:32:39Z"
+  },
+  "sentinels": {
+    "config_sentinel": "/Users/tamjid/.config/gcloud/config_sentinel"
+  }
+}
+2025-02-12 08:16:53,518 INFO     ___FILE_ONLY___ 
+
+2025-02-12 08:16:53,519 DEBUG    root            Checking for updates...
+2025-02-12 08:16:53,544 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-02-12 08:16:53,682 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/1.1" 200 227832
+2025-02-12 08:16:53,808 DEBUG    root            Updating notification cache...
+2025-02-12 08:16:53,808 DEBUG    root            Activating notification: [default]

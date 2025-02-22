@@ -1,0 +1,18 @@
+2025-02-05 12:17:40,389 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-02-05 12:17:40,391 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2025-02-05 12:17:40,392 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "tamjid.rahman@valon.com", --configuration: "default", --format: "value(name)", PROJECT_ID_OR_NUMBER: "prod-peach-street"]
+2025-02-05 12:17:40,402 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-05 12:17:40,426 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-05 12:17:40,625 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-02-05 12:17:40,631 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-05 12:17:40,633 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-05 12:17:40,809 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-02-05 12:17:40,817 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-05 12:17:40,819 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-05 12:17:41,000 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-02-05 12:17:41,057 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-02-05 12:17:41,350 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/prod-peach-street?alt=json HTTP/1.1" 200 None
+2025-02-05 12:17:41,354 DEBUG    root            Chosen display Format:default value(name)
+2025-02-05 12:17:41,355 INFO     root            Display format: "default value(name)"
+2025-02-05 12:17:41,382 INFO     ___FILE_ONLY___ PROD Valon
+

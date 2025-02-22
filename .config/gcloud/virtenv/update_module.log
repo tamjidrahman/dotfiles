@@ -1,0 +1,18 @@
+2024-12-04T12:40:03,464 Using pip 23.2.1 from /Users/tamjid/src/dotfiles/.config/gcloud/virtenv/lib/python3.11/site-packages/pip (python 3.11)
+2024-12-04T12:40:03,464 Non-user install because user site-packages disabled
+2024-12-04T12:40:03,476 Created temporary directory: /private/var/folders/tr/0lypqgnx6w77xpzfnjzr9z040000gn/T/pip-build-tracker-k24nt6e_
+2024-12-04T12:40:03,476 Initialized build tracking at /private/var/folders/tr/0lypqgnx6w77xpzfnjzr9z040000gn/T/pip-build-tracker-k24nt6e_
+2024-12-04T12:40:03,476 Created build tracker: /private/var/folders/tr/0lypqgnx6w77xpzfnjzr9z040000gn/T/pip-build-tracker-k24nt6e_
+2024-12-04T12:40:03,476 Entered build tracker: /private/var/folders/tr/0lypqgnx6w77xpzfnjzr9z040000gn/T/pip-build-tracker-k24nt6e_
+2024-12-04T12:40:03,476 Created temporary directory: /private/var/folders/tr/0lypqgnx6w77xpzfnjzr9z040000gn/T/pip-install-tk808qcr
+2024-12-04T12:40:03,477 Created temporary directory: /private/var/folders/tr/0lypqgnx6w77xpzfnjzr9z040000gn/T/pip-ephem-wheel-cache-eouecxzl
+2024-12-04T12:40:03,487 Requirement already satisfied: crcmod in /Users/tamjid/src/dotfiles/.config/gcloud/virtenv/lib/python3.11/site-packages (1.7)
+2024-12-04T12:40:03,488 Requirement already satisfied: grpcio in /Users/tamjid/src/dotfiles/.config/gcloud/virtenv/lib/python3.11/site-packages (1.68.0)
+2024-12-04T12:40:03,488 Requirement already satisfied: pyopenssl==23.2.0 in /Users/tamjid/src/dotfiles/.config/gcloud/virtenv/lib/python3.11/site-packages (23.2.0)
+2024-12-04T12:40:03,489 Requirement already satisfied: google_crc32c in /Users/tamjid/src/dotfiles/.config/gcloud/virtenv/lib/python3.11/site-packages (1.6.0)
+2024-12-04T12:40:03,489 Requirement already satisfied: certifi in /Users/tamjid/src/dotfiles/.config/gcloud/virtenv/lib/python3.11/site-packages (2024.8.30)
+2024-12-04T12:40:03,489 Requirement already satisfied: cryptography in /Users/tamjid/src/dotfiles/.config/gcloud/virtenv/lib/python3.11/site-packages (41.0.7)
+2024-12-04T12:40:03,498 Requirement already satisfied: cffi>=1.12 in /Users/tamjid/src/dotfiles/.config/gcloud/virtenv/lib/python3.11/site-packages (from cryptography) (1.17.1)
+2024-12-04T12:40:03,498 Requirement already satisfied: pycparser in /Users/tamjid/src/dotfiles/.config/gcloud/virtenv/lib/python3.11/site-packages (from cffi>=1.12->cryptography) (2.22)
+2024-12-04T12:40:03,499 Created temporary directory: /private/var/folders/tr/0lypqgnx6w77xpzfnjzr9z040000gn/T/pip-unpack-gg29ygju
+2024-12-04T12:40:03,519 Removed build tracker: '/private/var/folders/tr/0lypqgnx6w77xpzfnjzr9z040000gn/T/pip-build-tracker-k24nt6e_'

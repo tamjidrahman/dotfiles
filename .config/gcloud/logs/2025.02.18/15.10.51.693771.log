@@ -1,0 +1,12 @@
+2025-02-18 15:10:51,700 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-02-18 15:10:51,702 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2025-02-18 15:10:51,703 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "tamjid.rahman@valon.com", --configuration: "default", --format: "value(name)", PROJECT_ID_OR_NUMBER: "prod-peach-street"]
+2025-02-18 15:10:51,735 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-18 15:10:51,760 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-18 15:10:51,926 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-02-18 15:10:51,968 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-02-18 15:10:52,251 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/prod-peach-street?alt=json HTTP/1.1" 200 None
+2025-02-18 15:10:52,255 DEBUG    root            Chosen display Format:default value(name)
+2025-02-18 15:10:52,256 INFO     root            Display format: "default value(name)"
+2025-02-18 15:10:52,291 INFO     ___FILE_ONLY___ PROD Valon
+

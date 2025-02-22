@@ -1,0 +1,10 @@
+2025-02-09 17:37:31,321 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-02-09 17:37:31,323 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'get']
+2025-02-09 17:37:31,324 DEBUG    root            Running [gcloud.config.get] with arguments: [SECTION/PROPERTY: "account"]
+2025-02-09 17:37:31,324 DEBUG    root            Chosen display Format:value(.)
+2025-02-09 17:37:31,324 INFO     root            Display format: "value(.)"
+2025-02-09 17:37:31,324 INFO     ___FILE_ONLY___ tamjid.rahman@valon.com
+
+2025-02-09 17:37:31,325 DEBUG    root            Checking for updates...
+2025-02-09 17:37:31,362 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-02-09 17:37:31,655 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/1.1" 200 227832

@@ -1,0 +1,1 @@
+18:48:11.944  INFO   wezterm_gui::termwindow > QuitApplication over here (window)

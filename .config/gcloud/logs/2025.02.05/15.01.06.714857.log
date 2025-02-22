@@ -1,0 +1,31 @@
+2025-02-05 15:01:06,715 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-02-05 15:01:06,716 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
+2025-02-05 15:01:06,717 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "json", --min-expiry: "3600"]
+2025-02-05 15:01:06,724 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-05 15:01:06,728 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-05 15:01:06,891 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-02-05 15:01:06,895 DEBUG    root            Chosen display Format:default json
+2025-02-05 15:01:06,895 INFO     root            Display format: "default json"
+2025-02-05 15:01:06,913 INFO     ___FILE_ONLY___ {
+  "configuration": {
+    "active_configuration": "default",
+    "properties": {
+      "core": {
+        "account": "tamjid.rahman@valon.com",
+        "disable_prompts": "false",
+        "disable_usage_reporting": "True",
+        "project": "prod-peach-street"
+      }
+    }
+  },
+  "credential": {
+    "access_token": "ya29.a0AXeO80Te_sxwRjyYtj4aw4ek6tNNhoGd8fSa9uldbqmPhEgutM5HA2Zs9Wz7PUMTyEuPGGIUSaalK5VwYjokMugjgW76Xj5LOsmczNus64Hfutfw-oq5cLSzyCEyWuiJWMgLikgt41gGDmDQunzpRSvQGbaMF9m5yuHC9NjZl9qszwaCgYKAZMSARISFQHGX2Mizyr_J4rUgA21OjsbPtCjpQ0181",
+    "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImVlYzUzNGZhNWI4Y2FjYTIwMWNhOGQwZmY5NmI1NGM1NjIyMTBkMWUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNjUyNDM4NTEyNzgzNjkzMzI5IiwiaGQiOiJ2YWxvbi5jb20iLCJlbWFpbCI6InRhbWppZC5yYWhtYW5AdmFsb24uY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiI5R2VDMWNvQ2pDWENob2x3akZDZzJBIiwiaWF0IjoxNzM4Nzg1NjY2LCJleHAiOjE3Mzg3ODkyNjZ9.1FtzP3ITV1YqINuzz35jlM3EZ635fUfC5u6IK_JvHWJFmYoJJb_IcORX72Po4kYaXdE3iDjbePvc1kz5q8-2Yh8F1WgbG6WCOY70ICUg8cMH3npFL4s0mlDCViwZc6o2i9vA-4bZvO8-jyDqd2v11IpyDBMQVKj0iSnc8WNsjnNQwISZ7fB7c8Q4de3O7m8MbU_CKAw3OMqScTzRJ0isb5wMTKoiTeGXAn0FirvmKJqRltn501FS4t6x_V-Wyaftvl6Wq3qqkP2G3Ksx6dY59fFFouXB4Hi6dGVJpB_fmPbzEOnd8priDD8dLFHO49GrOgloRHlogw5qR6DQUAS6rQ",
+    "token_expiry": "2025-02-05T21:01:05Z"
+  },
+  "sentinels": {
+    "config_sentinel": "/Users/tamjid/.config/gcloud/config_sentinel"
+  }
+}
+2025-02-05 15:01:06,913 INFO     ___FILE_ONLY___ 
+

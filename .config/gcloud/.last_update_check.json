@@ -1,0 +1,1 @@
+{"last_update_check_time": 1740160871.780171, "last_update_check_revision": 20250218185346, "notifications": [{"id": "default", "condition": {"check_components": true}, "trigger": {"frequency": 86400}, "notification": {}}], "last_nag_times": {"default": 1739152904.3298838}}

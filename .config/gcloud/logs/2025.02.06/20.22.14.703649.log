@@ -1,0 +1,19 @@
+2025-02-06 20:22:14,709 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-02-06 20:22:14,710 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2025-02-06 20:22:14,711 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "tamjid.rahman@valon.com", --configuration: "default", --format: "value(name)", PROJECT_ID_OR_NUMBER: "prod-peach-street"]
+2025-02-06 20:22:14,717 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-06 20:22:14,722 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-06 20:22:14,876 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 400 None
+2025-02-06 20:22:14,877 INFO     root            Reauthentication not performed as we cannot prompt during non-interactive execution.
+2025-02-06 20:22:14,882 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-06 20:22:14,885 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-06 20:22:15,051 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 400 None
+2025-02-06 20:22:15,052 INFO     root            Reauthentication not performed as we cannot prompt during non-interactive execution.
+2025-02-06 20:22:15,066 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-06 20:22:15,068 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-02-06 20:22:15,229 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 400 None
+2025-02-06 20:22:15,230 INFO     root            Reauthentication not performed as we cannot prompt during non-interactive execution.
+2025-02-06 20:22:15,278 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-02-06 20:22:15,502 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/prod-peach-street?alt=json HTTP/1.1" 401 None
+2025-02-06 20:22:15,509 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-02-06 20:22:15,513 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443

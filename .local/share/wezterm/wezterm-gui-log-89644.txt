@@ -1,0 +1,15 @@
+06:35:53.137  INFO   window::os::macos::app > alert result is 1000
+15:29:44.349  WARN   wezterm_font           > No fonts contain glyphs for these codepoints: \u{7ca2}.
+Placeholder glyphs are being displayed instead.
+You may wish to install additional fonts, or adjust your
+configuration so that it can find them.
+https://wezfurlong.org/wezterm/config/fonts.html has more information about configuring fonts.
+Set warn_about_missing_glyphs=false to suppress this message.
+19:41:25.581  WARN   wezterm_font           > No fonts contain glyphs for these codepoints: \u{7ca2}.
+Placeholder glyphs are being displayed instead.
+You may wish to install additional fonts, or adjust your
+configuration so that it can find them.
+https://wezfurlong.org/wezterm/config/fonts.html has more information about configuring fonts.
+Set warn_about_missing_glyphs=false to suppress this message.
+09:12:22.214  INFO   window::os::macos::app > alert result is 1000
+16:53:44.444  INFO   window::os::macos::app > alert result is 1001

@@ -1,0 +1,20 @@
+2025-02-05 15:04:55,748 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-02-05 15:04:55,783 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-02-05 15:04:55,784 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "disable_prompts", VALUE: "true"]
+2025-02-05 15:04:55,785 INFO     ___FILE_ONLY___ Updated property [core/disable_prompts].
+
+2025-02-05 15:04:55,786 DEBUG    root            Chosen display Format:default
+2025-02-05 15:04:55,786 INFO     root            Display format: "default"
+2025-02-05 15:04:55,787 INFO     ___FILE_ONLY___ 
+
+Updates are available for some Google Cloud CLI components.  To install them,
+please run:
+  $ gcloud components update
+
+
+2025-02-05 15:04:55,788 INFO     ___FILE_ONLY___ 
+
+To take a quick anonymous survey, run:
+  $ gcloud survey
+
+

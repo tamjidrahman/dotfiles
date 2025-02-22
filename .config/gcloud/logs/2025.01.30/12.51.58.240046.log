@@ -1,0 +1,28 @@
+2025-01-30 12:51:58,240 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-01-30 12:51:58,242 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
+2025-01-30 12:51:58,243 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "json"]
+2025-01-30 12:51:58,250 DEBUG    root            Chosen display Format:default json
+2025-01-30 12:51:58,251 INFO     root            Display format: "default json"
+2025-01-30 12:51:58,270 INFO     ___FILE_ONLY___ {
+  "configuration": {
+    "active_configuration": "default",
+    "properties": {
+      "core": {
+        "account": "tamjid.rahman@valon.com",
+        "disable_prompts": "false",
+        "disable_usage_reporting": "True",
+        "project": "prod-peach-street"
+      }
+    }
+  },
+  "credential": {
+    "access_token": "ya29.a0AXeO80RuOOYpwVbQSnEvqcVkNnku_7SRrCTm-NP_OKDodEln8j7KDJulGA6UxQfU3EMQMFbg_NfNw9SS85pcbumH6WuLJhqz3J5w1_QdALXNXQTgTkxx821E-6n4QjmE5MQva9Er5Ws4oFuLpA1awjogXKny3WLO2rR5dYZvdNhGnQaCgYKAY8SARISFQHGX2MihG9L3m2k1l83NkeK5fkmgg0181",
+    "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImZhMDcyZjc1Nzg0NjQyNjE1MDg3YzcxODJjMTAxMzQxZTE4ZjdhM2EiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNjUyNDM4NTEyNzgzNjkzMzI5IiwiaGQiOiJ2YWxvbi5jb20iLCJlbWFpbCI6InRhbWppZC5yYWhtYW5AdmFsb24uY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJmcnBhT1gtOUlZSVBaaFFablVvSXh3IiwiaWF0IjoxNzM4MjU5MzU1LCJleHAiOjE3MzgyNjI5NTV9.jwdqWiUkNZs43IDKuaO1vpuSg8RLhNaIFjyfaJ5sFKiGpytso6ZKuq_GB8cwHipwZNyT2S5UqnwNmooFjy6Gm3DOWSjxnV_YgMoDyJs6Q4GyoqQZU-AF6hXUs_wItvaTnhydvmcScj3sw2EdY8wkS_CnDB4876f7W40_Bc47WN3a51n-ANYJAomNShZquLUeuWvRGMiGKBA1x4l493gt6F6vbTa5hOGu9aqmkIWIm-E1KABWXGSR7N-3EfTEnppYTctNE-zGxNHirviAcjRO7M5FT_0nC_sXrMZoHTfM_IBEdjxFFesiS8DHHL_QBqW1JHO4he36ZU2yHfFe-Alx6w",
+    "token_expiry": "2025-01-30T18:49:14Z"
+  },
+  "sentinels": {
+    "config_sentinel": "/Users/tamjid/.config/gcloud/config_sentinel"
+  }
+}
+2025-01-30 12:51:58,270 INFO     ___FILE_ONLY___ 
+

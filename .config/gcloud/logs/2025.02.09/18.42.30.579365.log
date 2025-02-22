@@ -1,0 +1,9 @@
+2025-02-09 18:42:30,590 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-02-09 18:42:30,594 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2025-02-09 18:42:30,595 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "tamjid.rahman@valon.com", --configuration: "default", --format: "value(name)", PROJECT_ID_OR_NUMBER: "prod-peach-street"]
+2025-02-09 18:42:30,637 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-02-09 18:42:30,916 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/prod-peach-street?alt=json HTTP/1.1" 200 None
+2025-02-09 18:42:30,919 DEBUG    root            Chosen display Format:default value(name)
+2025-02-09 18:42:30,920 INFO     root            Display format: "default value(name)"
+2025-02-09 18:42:30,949 INFO     ___FILE_ONLY___ PROD Valon
+
