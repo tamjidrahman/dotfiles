@@ -1,7 +1,0 @@
-2025-02-05 15:04:18,420 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
-2025-02-05 15:04:18,421 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'get']
-2025-02-05 15:04:18,421 DEBUG    root            Running [gcloud.config.get] with arguments: [SECTION/PROPERTY: "project"]
-2025-02-05 15:04:18,421 DEBUG    root            Chosen display Format:value(.)
-2025-02-05 15:04:18,422 INFO     root            Display format: "value(.)"
-2025-02-05 15:04:18,422 INFO     ___FILE_ONLY___ prod-peach-street
-

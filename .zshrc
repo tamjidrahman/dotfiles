@@ -110,3 +110,7 @@ source ~/.local/bin/session-completion.sh
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
+export PATH=$PATH:/Users/tamjid/.cargo/bin
+
+export PATH="/Users/tamjid/google-cloud-sdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"

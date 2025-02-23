@@ -1,38 +1,33 @@
 !_TAG_FILE_ENCODING	utf-8	//
 avante.nvim-acknowledgments	avante.nvim.md	/## Acknowledgments
+avante.nvim-blink-cmp-users	avante.nvim.md	/## Blink.cmp users
+avante.nvim-commands	avante.nvim.md	/## Commands
 avante.nvim-contributing	avante.nvim.md	/## Contributing
+avante.nvim-cursor-planning-mode	avante.nvim.md	/## Cursor planning mode
 avante.nvim-custom-prompts	avante.nvim.md	/## Custom prompts
+avante.nvim-custom-providers	avante.nvim.md	/## Custom providers
 avante.nvim-default-setup-configuration	avante.nvim.md	/### Default setup configuration
+avante.nvim-disable-tools	avante.nvim.md	/## Disable Tools
 avante.nvim-features	avante.nvim.md	/## Features
 avante.nvim-highlight-groups	avante.nvim.md	/## Highlight Groups
 avante.nvim-installation	avante.nvim.md	/## Installation
 avante.nvim-key-bindings	avante.nvim.md	/## Key Bindings
 avante.nvim-license	avante.nvim.md	/## License
+avante.nvim-rag-service	avante.nvim.md	/## RAG Service
 avante.nvim-roadmap	avante.nvim.md	/## Roadmap
+avante.nvim-sponsorship	avante.nvim.md	/## Sponsorship
 avante.nvim-star-history	avante.nvim.md	/# Star History
 avante.nvim-todos	avante.nvim.md	/## TODOs
 avante.nvim-usage	avante.nvim.md	/## Usage
-cmp-buffer-all-buffers	cmp-buffer.md	/##### All buffers
-cmp-buffer-cmp-buffer	cmp-buffer.md	/# cmp-buffer
-cmp-buffer-configuration	cmp-buffer.md	/## Configuration
-cmp-buffer-get-bufnrs-type-fun-number	cmp-buffer.md	/### get_bufnrs (type: fun(): number\[\])
-cmp-buffer-indexing-and-how-to-optimize-it	cmp-buffer.md	/## Indexing and how to optimize it
-cmp-buffer-indexing-batch-size-type-number	cmp-buffer.md	/### indexing_batch_size (type: number)
-cmp-buffer-indexing-interval-type-number	cmp-buffer.md	/### indexing_interval (type: number)
-cmp-buffer-keyword-length-type-number	cmp-buffer.md	/### keyword_length (type: number)
-cmp-buffer-keyword-pattern-type-string	cmp-buffer.md	/### keyword_pattern (type: string)
-cmp-buffer-locality-bonus-comparator-distance-based-sorting	cmp-buffer.md	/## Locality bonus comparator (distance-based sorting)
-cmp-buffer-max-indexed-line-length-type-number	cmp-buffer.md	/### max_indexed_line_length (type: number)
-cmp-buffer-performance-on-large-text-files	cmp-buffer.md	/### Performance on large text files
-cmp-buffer-setup	cmp-buffer.md	/## Setup
-cmp-buffer-visible-buffers	cmp-buffer.md	/##### Visible buffers
-cmp-path-cmp-path	cmp-path.md	/# cmp-path
-cmp-path-configuration	cmp-path.md	/## Configuration
-cmp-path-get-cwd-type-function	cmp-path.md	/### get_cwd (type: function)
-cmp-path-label-trailing-slash-type-boolean	cmp-path.md	/### label_trailing_slash (type: boolean)
-cmp-path-setup	cmp-path.md	/# Setup
-cmp-path-trailing-slash-type-boolean	cmp-path.md	/### trailing_slash (type: boolean)
-cmp_luasnip-cmp-luasnip	cmp_luasnip.md	/# cmp_luasnip
+avante.nvim-web-search-engines	avante.nvim.md	/## Web Search Engines
+blink-cmp-copilot-blink-cmp-copilot	blink-cmp-copilot.md	/# blink-cmp-copilot
+blink-cmp-copilot-configuration	blink-cmp-copilot.md	/### Configuration:
+blink-cmp-copilot-copilot-kind-icon	blink-cmp-copilot.md	/#### Copilot Kind Icon
+blink-cmp-copilot-install	blink-cmp-copilot.md	/### Install
+blink-cmp-copilot-lazy	blink-cmp-copilot.md	/#### Lazy
+blink-cmp-copilot-packer	blink-cmp-copilot.md	/#### Packer
+blink-cmp-copilot-setup	blink-cmp-copilot.md	/## Setup
+blink-cmp-copilot-source-definition	blink-cmp-copilot.md	/#### Source Definition
 copilot.lua-authentication	copilot.lua.md	/### Authentication
 copilot.lua-commands	copilot.lua.md	/## Commands
 copilot.lua-copilot-lua	copilot.lua.md	/# copilot.lua
@@ -61,6 +56,7 @@ friendly-snippets-with-packer	friendly-snippets.md	/### With Packer
 friendly-snippets-with-vim-plug	friendly-snippets.md	/### With vim-plug
 harpoon-api	harpoon.md	/## ⇁ API
 harpoon-basic-setup	harpoon.md	/### Basic Setup
+harpoon-builtin-extensions	harpoon.md	/### Builtin Extensions
 harpoon-config	harpoon.md	/### Config
 harpoon-contribution	harpoon.md	/## ⇁ Contribution
 harpoon-extend	harpoon.md	/### Extend
@@ -80,26 +76,20 @@ harpoon-telescope	harpoon.md	/### Telescope
 harpoon-the-problems	harpoon.md	/## ⇁ The Problems
 harpoon-the-solutions	harpoon.md	/## ⇁ The Solutions
 harpoon-toc	harpoon.md	/## ⇁ TOC
-lazygit.nvim-bashrc	lazygit.nvim.md	/# ~\/.bashrc
-lazygit.nvim-config-jesseduffield-lazygit-config-yml	lazygit.nvim.md	/# ~\/.config\/jesseduffield\/lazygit\/config.yml
-lazygit.nvim-highlighting-groups	lazygit.nvim.md	/### Highlighting groups
-lazygit.nvim-install	lazygit.nvim.md	/### Install
-lazygit.nvim-lazygit-nvim	lazygit.nvim.md	/# lazygit.nvim
-lazygit.nvim-telescope-plugin	lazygit.nvim.md	/### Telescope Plugin
-lazygit.nvim-usage	lazygit.nvim.md	/### Usage
-lspkind.nvim-configuration	lspkind.nvim.md	/## Configuration
-lspkind.nvim-lspkind-nvim	lspkind.nvim.md	/# lspkind-nvim
-lspkind.nvim-option-1-vanilla-neovim-lsp	lspkind.nvim.md	/### Option 1: vanilla Neovim LSP
-lspkind.nvim-option-2-nvim-cmp-https-github-com-hrsh7th-nvim-cmp	lspkind.nvim.md	/### Option 2: \[nvim-cmp\](https:\/\/github.com\/hrsh7th\/nvim-cmp)
-lspkind.nvim-related-lsp-plugins	lspkind.nvim.md	/## Related LSP plugins
-lspkind.nvim-requirements	lspkind.nvim.md	/## Requirements
-mason-tool-installer.nvim-commands	mason-tool-installer.nvim.md	/## Commands
-mason-tool-installer.nvim-configuration	mason-tool-installer.nvim.md	/## Configuration
-mason-tool-installer.nvim-events	mason-tool-installer.nvim.md	/## Events
-mason-tool-installer.nvim-installation	mason-tool-installer.nvim.md	/## Installation
-mason-tool-installer.nvim-mason-tool-installer	mason-tool-installer.nvim.md	/# mason-tool-installer
-mason-tool-installer.nvim-requirements	mason-tool-installer.nvim.md	/## Requirements
-mason-tool-installer.nvim-suggestions-complaints-help	mason-tool-installer.nvim.md	/## Suggestions \/ Complaints \/ Help
+markdown-preview.nvim-about-vim-support	markdown-preview.nvim.md	/### About Vim Support
+markdown-preview.nvim-buy-me-a-coffee	markdown-preview.nvim.md	/### Buy Me A Coffee ☕️
+markdown-preview.nvim-custom-examples	markdown-preview.nvim.md	/### Custom Examples
+markdown-preview.nvim-faq	markdown-preview.nvim.md	/### FAQ
+markdown-preview.nvim-how-can-i-change-the-dark-light-theme	markdown-preview.nvim.md	/#### *How can I change the dark\/light theme?*
+markdown-preview.nvim-how-can-i-pass-cli-options-to-the-browser-like-opening-in-a-new-window	markdown-preview.nvim.md	/#### *How can I pass CLI options to the browser, like opening in a new window?*
+markdown-preview.nvim-installation-usage	markdown-preview.nvim.md	/### Installation & Usage
+markdown-preview.nvim-introduction	markdown-preview.nvim.md	/### Introduction
+markdown-preview.nvim-markdownpreview-config	markdown-preview.nvim.md	/### MarkdownPreview Config:
+markdown-preview.nvim-references	markdown-preview.nvim.md	/### References
+markdown-preview.nvim-why-is-the-synchronised-scrolling-lagging	markdown-preview.nvim.md	/#### *Why is the synchronised scrolling lagging?*
+neotest-golang-features	neotest-golang.md	/## Features
+neotest-golang-neotest-golang	neotest-golang.md	/# neotest-golang
+neotest-python-neotest-python	neotest-python.md	/# neotest-python
 nui.nvim-blocks	nui.nvim.md	/## Blocks
 nui.nvim-components	nui.nvim.md	/## Components
 nui.nvim-extendibility	nui.nvim.md	/## Extendibility
@@ -262,13 +252,6 @@ nui.nvim-nuitree-lua-nui-tree	nui.nvim.md	/### \[NuiTree\](lua\/nui\/tree)
 nui.nvim-popup-lua-nui-popup	nui.nvim.md	/### \[Popup\](lua\/nui\/popup)
 nui.nvim-requirements	nui.nvim.md	/## Requirements
 nui.nvim-split-lua-nui-split	nui.nvim.md	/### \[Split\](lua\/nui\/split)
-nvim-lsp-file-operations-contributing	nvim-lsp-file-operations.md	/## Contributing
-nvim-lsp-file-operations-features	nvim-lsp-file-operations.md	/## Features
-nvim-lsp-file-operations-installation	nvim-lsp-file-operations.md	/## Installation
-nvim-lsp-file-operations-nvim-lsp-file-operations	nvim-lsp-file-operations.md	/# nvim-lsp-file-operations
-nvim-lsp-file-operations-setup	nvim-lsp-file-operations.md	/## Setup
-nvim-lsp-file-operations-using-lazy-nvim-https-github-com-folke-lazy-nvim	nvim-lsp-file-operations.md	/### Using \[lazy.nvim\](https:\/\/github.com\/folke\/lazy.nvim)
-nvim-lsp-file-operations-using-packer-nvim-https-github-com-wbthomason-packer-nvim	nvim-lsp-file-operations.md	/### Using \[packer.nvim\](https:\/\/github.com\/wbthomason\/packer.nvim)
 nvim-ts-autotag-a-note-on-lazy-loading	nvim-ts-autotag.md	/### A note on lazy loading
 nvim-ts-autotag-contributors	nvim-ts-autotag.md	/## Contributors
 nvim-ts-autotag-enable-update-on-insert	nvim-ts-autotag.md	/### Enable update on insert
@@ -277,6 +260,7 @@ nvim-ts-autotag-nvim-ts-autotag	nvim-ts-autotag.md	/# nvim-ts-autotag
 nvim-ts-autotag-setup	nvim-ts-autotag.md	/## Setup
 nvim-ts-autotag-sponsor	nvim-ts-autotag.md	/## Sponsor
 nvim-ts-autotag-usage	nvim-ts-autotag.md	/## Usage
+nvim-web-devicons-additional-icons	nvim-web-devicons.md	/## Additional Icons
 nvim-web-devicons-case-sensitivity	nvim-web-devicons.md	/### Case Sensitivity
 nvim-web-devicons-contributing	nvim-web-devicons.md	/## Contributing
 nvim-web-devicons-get-all-icons	nvim-web-devicons.md	/### Get all icons
@@ -286,7 +270,6 @@ nvim-web-devicons-getting-and-setting-icons-by-filetype	nvim-web-devicons.md	/##
 nvim-web-devicons-installation	nvim-web-devicons.md	/## Installation
 nvim-web-devicons-known-issues	nvim-web-devicons.md	/## Known Issues
 nvim-web-devicons-my-setup-overrides-are-not-applied	nvim-web-devicons.md	/### My `setup` Overrides Are Not Applied
-nvim-web-devicons-notice	nvim-web-devicons.md	/# Notice
 nvim-web-devicons-nvim-web-devicons	nvim-web-devicons.md	/# Nvim-web-devicons
 nvim-web-devicons-requirements	nvim-web-devicons.md	/## Requirements
 nvim-web-devicons-set-an-icon	nvim-web-devicons.md	/### Set an icon
@@ -295,18 +278,34 @@ nvim-web-devicons-usage	nvim-web-devicons.md	/## Usage
 nvim-web-devicons-variants	nvim-web-devicons.md	/### Variants
 nvim-web-devicons-viewing	nvim-web-devicons.md	/### Viewing
 nvim-web-devicons-windows-and-wsl-not-rendering-icons-properly-on-some-terminals	nvim-web-devicons.md	/### Windows and WSL not rendering icons properly on some terminals
-telescope-fzf-native.nvim-benchmark	telescope-fzf-native.nvim.md	/## Benchmark
-telescope-fzf-native.nvim-c-interface	telescope-fzf-native.nvim.md	/### C Interface
-telescope-fzf-native.nvim-cmake-windows-linux-macos	telescope-fzf-native.nvim.md	/### CMake (Windows, Linux, MacOS)
-telescope-fzf-native.nvim-credit	telescope-fzf-native.nvim.md	/## Credit
-telescope-fzf-native.nvim-developer-interface	telescope-fzf-native.nvim.md	/## Developer Interface
-telescope-fzf-native.nvim-disclaimer	telescope-fzf-native.nvim.md	/## Disclaimer
-telescope-fzf-native.nvim-installation	telescope-fzf-native.nvim.md	/## Installation
-telescope-fzf-native.nvim-lazy-nvim	telescope-fzf-native.nvim.md	/#### lazy.nvim
-telescope-fzf-native.nvim-lua-interface	telescope-fzf-native.nvim.md	/### Lua Interface
-telescope-fzf-native.nvim-make-linux-macos-windows-with-mingw	telescope-fzf-native.nvim.md	/### Make (Linux, MacOS, Windows with MinGW)
-telescope-fzf-native.nvim-packer-nvim	telescope-fzf-native.nvim.md	/#### packer.nvim
-telescope-fzf-native.nvim-telescope-fzf-native-nvim	telescope-fzf-native.nvim.md	/# telescope-fzf-native.nvim
-telescope-fzf-native.nvim-telescope-setup-and-configuration	telescope-fzf-native.nvim.md	/## Telescope Setup and Configuration
-telescope-fzf-native.nvim-todo	telescope-fzf-native.nvim.md	/### TODO
-telescope-fzf-native.nvim-vim-plug	telescope-fzf-native.nvim.md	/#### vim-plug
+telescope-terraform-doc.nvim-configurable-settings	telescope-terraform-doc.nvim.md	/### Configurable settings
+telescope-terraform-doc.nvim-demo	telescope-terraform-doc.nvim.md	/## Demo
+telescope-terraform-doc.nvim-installation	telescope-terraform-doc.nvim.md	/## Installation
+telescope-terraform-doc.nvim-keymap-ideas	telescope-terraform-doc.nvim.md	/### Keymap ideas
+telescope-terraform-doc.nvim-packer	telescope-terraform-doc.nvim.md	/### Packer
+telescope-terraform-doc.nvim-quirks	telescope-terraform-doc.nvim.md	/##### Quirks
+telescope-terraform-doc.nvim-setup	telescope-terraform-doc.nvim.md	/## Setup
+telescope-terraform-doc.nvim-telescope-key-mappings	telescope-terraform-doc.nvim.md	/#### Telescope key mappings
+telescope-terraform-doc.nvim-telescope-terraform-doc-nvim	telescope-terraform-doc.nvim.md	/# telescope-terraform-doc.nvim
+telescope-terraform-doc.nvim-usage	telescope-terraform-doc.nvim.md	/## Usage
+telescope-terraform-doc.nvim-vim-plug	telescope-terraform-doc.nvim.md	/### vim-plug
+telescope-terraform.nvim-installation	telescope-terraform.nvim.md	/## Installation
+telescope-terraform.nvim-key-mappings	telescope-terraform.nvim.md	/#### Key mappings
+telescope-terraform.nvim-list	telescope-terraform.nvim.md	/### list
+telescope-terraform.nvim-telescope-terraform-nvim	telescope-terraform.nvim.md	/# telescope-terraform.nvim
+telescope-terraform.nvim-usage	telescope-terraform.nvim.md	/## Usage
+venv-selector.nvim-changing-the-output-in-the-telescope-viewer-on-telescope-result-callback	venv-selector.nvim.md	/## Changing the output in the telescope viewer (on_telescope_result_callback)
+venv-selector.nvim-common-flags-to-fd	venv-selector.nvim.md	/## Common flags to fd
+venv-selector.nvim-configuration-snippet-for-lazy-nvim-https-github-com-folke-lazy-nvim	venv-selector.nvim.md	/## Configuration snippet for \[lazy.nvim\](https:\/\/github.com\/folke\/lazy.nvim)
+venv-selector.nvim-default-searches	venv-selector.nvim.md	/## Default searches
+venv-selector.nvim-exposed-functions	venv-selector.nvim.md	/## Exposed functions
+venv-selector.nvim-features	venv-selector.nvim.md	/# ⚡️ Features
+venv-selector.nvim-global-options-to-the-plugin	venv-selector.nvim.md	/## Global options to the plugin
+venv-selector.nvim-my-venvs-dont-show-up-how-can-i-create-my-own-search	venv-selector.nvim.md	/## My venvs dont show up - how can i create my own search?
+venv-selector.nvim-override-or-disable-a-default-search	venv-selector.nvim.md	/## Override or disable a default search
+venv-selector.nvim-python-debugger-support-with-dap-and-dap-python	venv-selector.nvim.md	/## Python debugger support with dap and dap-python
+venv-selector.nvim-run-your-own-code-on-venv-activation-on-venv-activate-callback	venv-selector.nvim.md	/## Run your own code on venv activation (on_venv_activate_callback)
+venv-selector.nvim-special-note-about-anaconda-miniconda-searches	venv-selector.nvim.md	/### Special note about anaconda\/miniconda searches
+venv-selector.nvim-the-current-default-searches-are-for	venv-selector.nvim.md	/### The current default searches are for:
+venv-selector.nvim-venvselect-is-slow-for-me-what-can-i-do	venv-selector.nvim.md	/## VenvSelect is slow for me, what can i do?
+venv-selector.nvim-why-did-you-rewrite-the-plugin	venv-selector.nvim.md	/## Why did you rewrite the plugin?

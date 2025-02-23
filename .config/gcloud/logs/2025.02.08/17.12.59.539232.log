@@ -1,7 +1,0 @@
-2025-02-08 17:12:59,539 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
-2025-02-08 17:12:59,540 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'get']
-2025-02-08 17:12:59,541 DEBUG    root            Running [gcloud.config.get] with arguments: [SECTION/PROPERTY: "account"]
-2025-02-08 17:12:59,541 DEBUG    root            Chosen display Format:value(.)
-2025-02-08 17:12:59,541 INFO     root            Display format: "value(.)"
-2025-02-08 17:12:59,541 INFO     ___FILE_ONLY___ tamjid.rahman@valon.com
-

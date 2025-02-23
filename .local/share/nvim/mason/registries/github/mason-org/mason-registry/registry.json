@@ -2363,7 +2363,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:npm/%40github/copilot-language-server@1.273.0"
+      "id": "pkg:npm/%40github/copilot-language-server@1.274.0"
     },
     "bin": {
       "copilot-language-server": "npm:copilot-language-server"
@@ -4218,7 +4218,7 @@
       "Formatter"
     ],
     "source": {
-      "id": "pkg:nuget/fantomas@7.0.0"
+      "id": "pkg:nuget/fantomas@7.0.1"
     },
     "bin": {
       "fantomas": "nuget:fantomas"
@@ -5630,7 +5630,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:github/GroovyLanguageServer/groovy-language-server@557b908958e7063e3c354a8ec3397a6e6fdd3d66",
+      "id": "pkg:github/GroovyLanguageServer/groovy-language-server@ae359b1a3756c8de4c8ab15afcd158b78f85433b",
       "build": {
         "run": "./gradlew --no-daemon build"
       }
@@ -7872,7 +7872,7 @@
       "Formatter"
     ],
     "source": {
-      "id": "pkg:cargo/mdsf@0.5.1"
+      "id": "pkg:cargo/mdsf@0.5.2"
     },
     "bin": {
       "mdsf": "cargo:mdsf"
@@ -8712,7 +8712,7 @@
       "Linter"
     ],
     "source": {
-      "id": "pkg:pypi/oelint-adv@7.0.1"
+      "id": "pkg:pypi/oelint-adv@7.1.0"
     },
     "bin": {
       "oelint-adv": "pypi:oelint-adv"
@@ -9256,7 +9256,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:github/phpactor/phpactor@2024.11.28.1",
+      "id": "pkg:github/phpactor/phpactor@2025.02.21.0",
       "asset": {
         "file": "phpactor.phar"
       }
@@ -9475,7 +9475,7 @@
       "Formatter"
     ],
     "source": {
-      "id": "pkg:npm/prettier@3.5.1"
+      "id": "pkg:npm/prettier@3.5.2"
     },
     "bin": {
       "prettier": "npm:prettier"
@@ -9977,7 +9977,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:github/mtshiba/pylyzer@v0.0.80",
+      "id": "pkg:github/mtshiba/pylyzer@v0.0.81",
       "asset": [
         {
           "target": "darwin_arm64",
@@ -10794,7 +10794,7 @@
       "Formatter"
     ],
     "source": {
-      "id": "pkg:gem/rufo@0.18.0"
+      "id": "pkg:gem/rufo@0.18.1"
     },
     "bin": {
       "rufo": "gem:rufo"
@@ -11851,7 +11851,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:gem/sorbet@0.5.11845",
+      "id": "pkg:gem/sorbet@0.5.11851",
       "supported_platforms": [
         "unix"
       ]
@@ -11968,7 +11968,7 @@
       "Formatter"
     ],
     "source": {
-      "id": "pkg:npm/sql-formatter@15.4.10"
+      "id": "pkg:npm/sql-formatter@15.4.11"
     },
     "bin": {
       "sql-formatter": "npm:sql-formatter"

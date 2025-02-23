@@ -7,8 +7,11 @@
   <a href="https://neovim.io/" target="_blank">
     <img src="https://img.shields.io/static/v1?style=flat-square&label=Neovim&message=v0.10%2b&logo=neovim&labelColor=282828&logoColor=8faa80&color=414b32" alt="Neovim: v0.10+" />
   </a>
-  <a href="https://github.com/yetone/avante.nvim/actions/workflows/ci.yaml" target="_blank">
-    <img src="https://img.shields.io/github/actions/workflow/status/yetone/avante.nvim/ci.yaml?style=flat-square&logo=github&logoColor=c7c7c7&label=CI&labelColor=282828&color=347D39&event=push" alt="CI status" />
+  <a href="https://github.com/yetone/avante.nvim/actions/workflows/lua.yaml" target="_blank">
+    <img src="https://img.shields.io/github/actions/workflow/status/yetone/avante.nvim/lua.yaml?style=flat-square&logo=lua&logoColor=c7c7c7&label=Lua+CI&labelColor=1E40AF&color=347D39&event=push" alt="Lua CI status" />
+  </a>
+  <a href="https://github.com/yetone/avante.nvim/actions/workflows/rust.yaml" target="_blank">
+    <img src="https://img.shields.io/github/actions/workflow/status/yetone/avante.nvim/rust.yaml?style=flat-square&logo=rust&logoColor=ffffff&label=Rust+CI&labelColor=BC826A&color=347D39&event=push" alt="Rust CI status" />
   </a>
   <a href="https://discord.com/invite/wUuZz7VxXD" target="_blank">
     <img src="https://img.shields.io/discord/1302530866362323016?style=flat-square&logo=discord&label=Discord&logoColor=ffffff&labelColor=7376CF&color=268165" alt="Discord" />
@@ -28,6 +31,12 @@ https://github.com/user-attachments/assets/510e6270-b6cf-459d-9a2f-15b397d1fe53
 
 https://github.com/user-attachments/assets/86140bfd-08b4-483d-a887-1b701d9e37dd
 
+## Sponsorship
+
+If you like this project, please consider supporting me on Patreon, as it helps me to continue maintaining and improving it:
+
+[Sponsor me](https://patreon.com/yetone)
+
 ## Features
 
 - **AI-Powered Code Assistance**: Interact with AI to ask questions about your current code file and receive intelligent suggestions for improvement or modification.
@@ -46,9 +55,19 @@ For building binary if you wish to build from source, then `cargo` is required. 
   "yetone/avante.nvim",
   event = "VeryLazy",
   lazy = false,
-  version = false, -- set this if you want to always pull the latest change
+  version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
     -- add any opts here
+    -- for example
+    provider = "openai",
+    openai = {
+      endpoint = "https://api.openai.com/v1",
+      model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+      timeout = 30000, -- timeout in milliseconds
+      temperature = 0, -- adjust if needed
+      max_tokens = 4096,
+      reasoning_effort = "high" -- only supported for "o" models
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
@@ -59,6 +78,10 @@ For building binary if you wish to build from source, then `cargo` is required. 
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
+    "echasnovski/mini.pick", -- for file_selector provider mini.pick
+    "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+    "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+    "ibhagwan/fzf-lua", -- for file_selector provider fzf
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
@@ -99,11 +122,14 @@ For building binary if you wish to build from source, then `cargo` is required. 
 ```vim
 
 " Deps
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'stevearc/dressing.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'MunifTanjim/nui.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 " Optional deps
+Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
 Plug 'HakonHarnes/img-clip.nvim'
 Plug 'zbirenbaum/copilot.lua'
@@ -129,6 +155,7 @@ add({
   source = 'yetone/avante.nvim',
   monitor = 'main',
   depends = {
+    'nvim-treesitter/nvim-treesitter',
     'stevearc/dressing.nvim',
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
@@ -137,6 +164,7 @@ add({
   hooks = { post_checkout = function() vim.cmd('make') end }
 })
 --- optional
+add({ source = 'hrsh7th/nvim-cmp' })
 add({ source = 'zbirenbaum/copilot.lua' })
 add({ source = 'HakonHarnes/img-clip.nvim' })
 add({ source = 'MeanderingProgrammer/render-markdown.nvim' })
@@ -154,10 +182,46 @@ end)
 
 <details>
 
+  <summary><a href="https://github.com/wbthomason/packer.nvim">Packer</a></summary>
+
+```vim
+
+  -- Required plugins
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'stevearc/dressing.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'MunifTanjim/nui.nvim'
+  use 'MeanderingProgrammer/render-markdown.nvim'
+
+  -- Optional dependencies
+  use 'hrsh7th/nvim-cmp'
+  use 'nvim-tree/nvim-web-devicons' -- or use 'echasnovski/mini.icons'
+  use 'HakonHarnes/img-clip.nvim'
+  use 'zbirenbaum/copilot.lua'
+
+  -- Avante.nvim with build process
+  use {
+    'yetone/avante.nvim',
+    branch = 'main',
+    run = 'make',
+    config = function()
+      require('avante_lib').load()
+      require('avante').setup()
+    end
+  }
+```
+
+</details>
+
+<details>
+
   <summary>Lua</summary>
 
 ```lua
 -- deps:
+require('cmp').setup ({
+  -- use recommended settings from above
+})
 require('img-clip').setup ({
   -- use recommended settings from above
 })
@@ -201,8 +265,12 @@ _See [config.lua#L9](./lua/avante/config.lua) for the full config_
 ```lua
 {
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-  provider = "claude", -- Recommend using Claude
-  auto_suggestions_provider = "claude", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+  provider = "claude", -- The provider used in Aider mode or in the planning phase of Cursor Planning Mode
+  -- WARNING: Since auto-suggestions are a high-frequency operation and therefore expensive,
+  -- currently designating it as `copilot` provider is dangerous because: https://github.com/yetone/avante.nvim/issues/1048
+  -- Of course, you can reduce the request frequency by increasing `suggestion.debounce`.
+  auto_suggestions_provider = "claude",
+  cursor_applying_provider = nil, -- The provider used in the applying phase of Cursor Planning Mode, defaults to nil, when nil uses Config.provider as the provider for the applying phase
   claude = {
     endpoint = "https://api.anthropic.com",
     model = "claude-3-5-sonnet-20241022",
@@ -231,6 +299,9 @@ _See [config.lua#L9](./lua/avante/config.lua) for the full config_
     auto_set_keymaps = true,
     auto_apply_diff_after_generation = false,
     support_paste_from_clipboard = false,
+    minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+    enable_token_counting = true, -- Whether to enable token counting. Default to true.
+    enable_cursor_planning_mode = false, -- Whether to enable Cursor Planning Mode. Default to false.
   },
   mappings = {
     --- @class AvanteConflictMappings
@@ -308,8 +379,119 @@ _See [config.lua#L9](./lua/avante/config.lua) for the full config_
     --- Disable by setting to -1.
     override_timeoutlen = 500,
   },
+  suggestion = {
+    debounce = 600,
+    throttle = 600,
+  },
 }
 ```
+## Blink.cmp users
+For blink cmp users (nvim-cmp alternative) view below instruction for configuration
+This is achieved by emulating nvim-cmp using blink.compat
+or you can use [Kaiser-Yang/blink-cmp-avante](https://github.com/Kaiser-Yang/blink-cmp-avante).
+<details>
+  <summary>Lua</summary>
+
+```lua
+      file_selector = {
+        --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string | fun(params: avante.file_selector.IParams|nil): nil
+        provider = "fzf",
+        -- Options override for custom providers
+        provider_opts = {},
+      }
+```
+
+To create a customized file_selector, you can specify a customized function to launch a picker to select items and pass the selected items to the `handler` callback.
+
+```lua
+      file_selector = {
+        ---@param params avante.file_selector.IParams
+        provider = function(params)
+          local filepaths = params.filepaths ---@type string[]
+          local title = params.title ---@type string
+          local handler = params.handler ---@type fun(selected_filepaths: string[]|nil): nil
+
+          -- Launch your customized picker with the items built from `filepaths`, then in the `on_confirm` callback,
+          -- pass the selected items (convert back to file paths) to the `handler` function.
+
+          local items = __your_items_formatter__(filepaths)
+          __your_picker__({
+            items = items,
+            on_cancel = function()
+              handler(nil)
+            end,
+            on_confirm = function(selected_items)
+              local selected_filepaths = {}
+              for _, item in ipairs(selected_items) do
+                table.insert(selected_filepaths, item.filepath)
+              end
+              handler(selected_filepaths)
+            end
+          })
+        end,
+        ---below is optional
+        provider_opts = {
+          ---@param params avante.file_selector.opts.IGetFilepathsParams
+          get_filepaths = function(params)
+            local cwd = params.cwd ---@type string
+            local selected_filepaths = params.selected_filepaths ---@type string[]
+            local cmd = string.format("fd --base-directory '%s' --hidden", vim.fn.fnameescape(cwd))
+            local output = vim.fn.system(cmd)
+            local filepaths = vim.split(output, "\n", { trimempty = true })
+            return vim
+              .iter(filepaths)
+              :filter(function(filepath)
+                return not vim.tbl_contains(selected_filepaths, filepath)
+              end)
+              :totable()
+          end
+        }
+        end
+      }
+```
+
+Choose a selector other that native, the default as that currently has an issue
+For lazyvim users copy the full config for blink.cmp from the website or extend the options
+```lua
+      compat = {
+        "avante_commands",
+        "avante_mentions",
+        "avante_files",
+      }
+```
+For other users just add a custom provider
+```lua
+      default = {
+        ...
+        "avante_commands",
+        "avante_mentions",
+        "avante_files",
+      }
+```
+```lua
+      providers = {
+        avante_commands = {
+          name = "avante_commands",
+          module = "blink.compat.source",
+          score_offset = 90, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_files = {
+          name = "avante_files",
+          module = "blink.compat.source",
+          score_offset = 100, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_mentions = {
+          name = "avante_mentions",
+          module = "blink.compat.source",
+          score_offset = 1000, -- show at a higher priority than lsp
+          opts = {},
+        }
+        ...
+    }
+```
+</details>
 
 ## Usage
 
@@ -318,14 +500,18 @@ Given its early stage, `avante.nvim` currently supports the following basic func
 > [!IMPORTANT]
 >
 > Avante will only support Claude, and OpenAI (and its variants including azure)out-of-the-box due to its high code quality generation.
-> For all OpenAI-compatible providers, see [wiki](https://github.com/yetone/avante.nvim/wiki) for more details.
+> For all OpenAI-compatible providers, see [wiki](https://github.com/yetone/avante.nvim/wiki/Custom-providers) for more details.
 
 > [!IMPORTANT]
 >
-> Due to the poor performance of other models, avante.nvim only recommends using the claude-3.5-sonnet model.
-> All features can only be guaranteed to work properly on the claude-3.5-sonnet model.
-> We do not accept changes to the code or prompts to accommodate other models. Otherwise, it will greatly increase our maintenance costs.
-> We hope everyone can understand. Thank you!
+> ~~Due to the poor performance of other models, avante.nvim only recommends using the claude-3.5-sonnet model.~~
+> ~~All features can only be guaranteed to work properly on the claude-3.5-sonnet model.~~
+> ~~We do not accept changes to the code or prompts to accommodate other models. Otherwise, it will greatly increase our maintenance costs.~~
+> ~~We hope everyone can understand. Thank you!~~
+
+> [!IMPORTANT]
+>
+> Since avante.nvim now supports [cursor planning mode](./cursor-planning-mode.md), the above statement is no longer valid! avante.nvim now supports most models! If you encounter issues with normal usage, please try enabling [cursor planning mode](./cursor-planning-mode.md).
 
 > [!IMPORTANT]
 >
@@ -349,6 +535,14 @@ Given its early stage, `avante.nvim` currently supports the following basic func
 > ```sh
 > export AZURE_OPENAI_API_KEY=your-api-key
 > ```
+>
+> For Amazon Bedrock:
+>
+> ```sh
+> export BEDROCK_KEYS=aws_access_key_id,aws_secret_access_key,aws_region[,aws_session_token]
+>
+> ```
+> Note: The aws_session_token is optional and only needed when using temporary AWS credentials
 
 1. Open a code file in Neovim.
 2. Use the `:AvanteAsk` command to query the AI about the code.
@@ -383,6 +577,20 @@ The following key bindings are available for use with `avante.nvim`:
 > If you are using `lazy.nvim`, then all keymap here will be safely set, meaning if `<leader>aa` is already binded, then avante.nvim won't bind this mapping.
 > In this case, user will be responsible for setting up their own. See [notes on keymaps](https://github.com/yetone/avante.nvim/wiki#keymaps-and-api-i-guess) for more details.
 
+## Commands
+
+| Command | Description | Examples
+|---------|-------------| ------------------
+| `:AvanteAsk [question] [position]` | Ask AI about your code. Optional `position` set window position and `ask` enable/disable direct asking mode | `:AvanteAsk position=right Refactor this code here`
+| `:AvanteBuild` | Build dependencies for the project |
+| `:AvanteChat` | Start a chat session with AI about your codebase. Default is `ask`=false |
+| `:AvanteEdit` | Edit the selected code blocks |
+| `:AvanteFocus` | Switch focus to/from the sidebar |
+| `:AvanteRefresh` | Refresh all Avante windows |
+| `:AvanteSwitchProvider` | Switch AI provider (e.g. openai) |
+| `:AvanteShowRepoMap` | Show repo map for project's structure |
+| `:AvanteToggle` | Toggle the Avante sidebar |
+
 ## Highlight Groups
 
 | Highlight Group             | Description                                   | Notes                                        |
@@ -402,6 +610,71 @@ The following key bindings are available for use with `avante.nvim`:
 
 See [highlights.lua](./lua/avante/highlights.lua) for more information
 
+## Custom providers
+
+Avante provides a set of default providers, but users can also create their own providers.
+
+For more information, see [Custom Providers](https://github.com/yetone/avante.nvim/wiki/Custom-providers)
+
+## Cursor planning mode
+
+Because avante.nvim has always used Aider’s method for planning applying, but its prompts are very picky with models and require ones like claude-3.5-sonnet or gpt-4o to work properly.
+
+Therefore, I have adopted Cursor’s method to implement planning applying. For details on the implementation, please refer to [cursor-planning-mode.md](./cursor-planning-mode.md)
+
+## RAG Service
+
+Avante provides a RAG service, which is a tool for obtaining the required context for the AI to generate the codes. Default it not enabled, you can enable it in this way:
+
+```lua
+rag_service = {
+  enabled = true, -- Enables the rag service, requires OPENAI_API_KEY to be set
+},
+```
+
+Please note that since the RAG service uses OpenAI for embeddings, you must set `OPENAI_API_KEY` environment variable!
+
+Additionally, RAG Service also depends on Docker! (For macOS users, OrbStack is recommended as a Docker alternative)
+
+## Web Search Engines
+
+Avante's tools include some web search engines, currently support:
+
+- [tavily](https://tavily.com/)
+- [serpapi](https://serpapi.com/)
+- [searchapi](https://www.searchapi.io/)
+- google's [programmable search engine](https://developers.google.com/custom-search/v1/overview)
+- [kagi](https://help.kagi.com/kagi/api/search.html)
+
+The default is tavily, and can be changed through configuring `Config.web_search_engine.provider`:
+
+```lua
+web_search_engine = {
+  provider = "tavily", -- tavily, serpapi, searchapi, google or kagi
+}
+```
+
+You need to set the environment variable `TAVILY_API_KEY` , `SERPAPI_API_KEY`, `SEARCHAPI_API_KEY` to use tavily or serpapi or searchapi.
+To use google, set the `GOOGLE_SEARCH_API_KEY` as the [API key](https://developers.google.com/custom-search/v1/overview), and `GOOGLE_SEARCH_ENGINE_ID` as the [search engine](https://programmablesearchengine.google.com) ID.
+To use kagi, set the `KAGI_API_KEY` as the [API Token](https://kagi.com/settings?p=api).
+
+## Disable Tools
+
+Avante enables tools by default, but some LLM models do not support tools. You can disable tools by setting `disable_tools = true` for the provider. For example:
+
+```lua
+{
+  claude = {
+    endpoint = "https://api.anthropic.com",
+    model = "claude-3-5-sonnet-20241022",
+    timeout = 30000, -- Timeout in milliseconds
+    temperature = 0,
+    max_tokens = 4096,
+    disable_tools = true, -- disable tools!
+  },
+}
+```
+
 ## Custom prompts
 
 By default, `avante.nvim` provides three different modes to interact with: `planning`, `editing`, and `suggesting`, followed with three different prompts per mode.
@@ -414,7 +687,7 @@ Users can customize the system prompts via `Config.system_prompt`. We recommend 
 
 ```lua
 vim.api.nvim_create_autocmd("User", {
-  pattern = "ToggleMyPrompt"
+  pattern = "ToggleMyPrompt",
   callback = function() require("avante.config").override({system_prompt = "MY CUSTOM SYSTEM PROMPT"}) end,
 })
 
@@ -465,8 +738,9 @@ If you have the following structure:
 - [x] Edit the selected block
 - [x] Smart Tab (Cursor Flow)
 - [x] Chat with project (You can use `@codebase` to chat with the whole project)
+- [x] Chat with selected files
 - [ ] CoT
-- [ ] Chat with selected files
+- [x] Tool use
 
 ## Roadmap
 

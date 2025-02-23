@@ -1,7 +1,0 @@
-2025-02-09 21:01:45,201 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
-2025-02-09 21:01:45,218 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
-2025-02-09 21:01:45,219 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "disable_prompts", VALUE: "false"]
-2025-02-09 21:01:45,220 INFO     ___FILE_ONLY___ Updated property [core/disable_prompts].
-
-2025-02-09 21:01:45,220 DEBUG    root            Chosen display Format:default
-2025-02-09 21:01:45,220 INFO     root            Display format: "default"
