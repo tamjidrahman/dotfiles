@@ -1,1 +1,5 @@
 .secrets
+.config/gcloud/**
+**/.DS_Store
+.local/share/**
+.local/state/nvim/**
