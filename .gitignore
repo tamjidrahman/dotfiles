@@ -4,3 +4,5 @@
 .local/share/**
 .local/state/nvim/**
 .local/pipx/**
+.local/bin/uv
+.local/bin/uvx
