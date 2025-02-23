@@ -3,3 +3,4 @@
 **/.DS_Store
 .local/share/**
 .local/state/nvim/**
+.local/pipx/**
