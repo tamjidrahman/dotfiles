@@ -1,4 +1,4 @@
-#!/Users/tamjid/Library/Caches/pypoetry/virtualenvs/home-456qSKn3-py3.13/bin/python
+#!/Users/tamjidrahman/Library/Caches/pypoetry/virtualenvs/home-GnCLjTl9-py3.12/bin/python
 import sys
 from home import app
 
