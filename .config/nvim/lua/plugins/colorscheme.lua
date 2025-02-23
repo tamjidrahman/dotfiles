@@ -47,5 +47,6 @@ return {
     vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "none" })
     vim.api.nvim_set_hl(0, "NvimTreeVertSplit", { bg = "none" })
     vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { link = "Comment" })
   end,
 }

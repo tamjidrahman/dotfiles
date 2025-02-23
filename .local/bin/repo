@@ -6,12 +6,15 @@ get_repo_list() {
 
 
 get_nvim_startup_command() {
-    if [[ -f "$1/poetry.lock" ]]; then
-      # If the selected directory contains a poetry.lock file, activate the poetry environment
-      echo 'source "$(poetry env list --full-path | grep Activated | cut -d" " -f1)/bin/activate" && nvim'
-    else
-      # Fallback to just opening nvim
-      echo "nvim"
+       if [[ -f "$1/poetry.lock" ]]; then
+          # If the selected directory contains a poetry.lock file, activate the poetry environment
+          echo 'source "$(poetry env list --full-path | grep Activated | cut -d" " -f1)/bin/activate" && nvim'
+        elif [[ -d "$1/.venv" ]]; then
+          # If the selected directory contains a .venv directory, activate the virtual environment
+          echo "source $1/.venv/bin/activate && nvim"
+        else
+          # Fallback to just opening nvim
+          echo "nvim"
     fi
 }
 
@@ -34,8 +37,13 @@ repo() {
     fi
 
     local nvim_command=$(get_nvim_startup_command ~/src/"$1")
-    echo session $restart_flag "$1" "~/src/$1/" "$nvim_command" "ls" 
-    session $restart_flag "$1" ~/src/"$1"/ "$nvim_command" "ls" 
+    if [[ "$1" == "front-porch" ]]; then
+        echo session $restart_flag "$1" "~/src/$1/" "$nvim_command" "ls" "peach db proxy prod"
+        session $restart_flag "$1" ~/src/"$1"/ "$nvim_command" "ls" "peach db proxy prod"
+    else
+        echo session $restart_flag "$1" "~/src/$1/" "$nvim_command" "ls"
+        session $restart_flag "$1" ~/src/"$1"/ "$nvim_command" "ls"
+    fi
 }
 
 _repo_autocomplete() {
