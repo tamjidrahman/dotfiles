@@ -6,3 +6,4 @@
 .local/pipx/**
 .local/bin/uv
 .local/bin/uvx
+.local/bin/poetry
