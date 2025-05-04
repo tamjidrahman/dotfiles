@@ -114,3 +114,7 @@ export PATH=$PATH:/Users/tamjid/.cargo/bin
 
 export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+# ---- NPM Global Packages ----
+# Add npm global bin to PATH (uses current node version from NVM)
+export PATH="$NVM_DIR/versions/node/$(node -v | cut -c2-)/bin:$PATH"

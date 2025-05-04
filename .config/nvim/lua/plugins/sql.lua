@@ -14,7 +14,8 @@ return {
     -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
     vim.g.dbs = {
-      { name = "cellar-prod", url = "mysql://tamjid.rahman:@127.0.0.1:3309/cellar" },
+      { name = "cellar-malbec-prod", url = "mysql://tamjid.rahman:@127.0.0.1:3329/cellar" },
+      { name = "cellar-riesling-prod", url = "mysql://tamjid.rahman:@127.0.0.1:3339/cellar" },
       { name = "cellar-dev", url = "mysql://tamjid.rahman:@127.0.0.1:3307/cellar" },
     }
     vim.api.nvim_create_autocmd("FileType", {
