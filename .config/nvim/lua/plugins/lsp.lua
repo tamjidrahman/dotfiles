@@ -13,7 +13,21 @@ return {
       opts = opts or {}
       opts.servers = opts.servers or {}
 
-      -- Python language server configuration
+      -- Python language servers configuration
+      -- Configure Ruff first for linting and formatting
+      opts.servers.ruff_lsp = {
+        init_options = {
+          settings = {
+            -- Ruff settings
+            lint = {
+              run = "onSave",
+            },
+            fixAll = true,
+          },
+        },
+      }
+
+      -- Pyright for type checking (with reduced diagnostics since Ruff handles linting)
       opts.servers.pyright = {
         settings = {
           python = {
@@ -22,6 +36,11 @@ return {
               autoSearchPaths = true,
               useLibraryCodeForTypes = true,
               diagnosticMode = "workspace",
+              -- Disable some Pyright diagnostics since Ruff will handle them
+              diagnosticSeverityOverrides = {
+                reportUnusedImport = "none",
+                reportUnusedVariable = "none",
+              },
             },
           },
         },
@@ -38,6 +57,7 @@ return {
 
       -- Add Python LSP server to ensure_installed
       table.insert(opts.ensure_installed, "pyright")
+      table.insert(opts.ensure_installed, "ruff-lsp")
 
       return opts
     end,
