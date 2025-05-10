@@ -34,6 +34,7 @@ return {
     vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
     vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
     vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
 
     -- transparent background for neotree
     vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
@@ -48,5 +49,6 @@ return {
     vim.api.nvim_set_hl(0, "NvimTreeVertSplit", { bg = "none" })
     vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { bg = "none" })
     vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "SnacksPickerListCursorLine", { link = "Visual" })
   end,
 }
