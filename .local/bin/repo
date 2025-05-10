@@ -40,9 +40,19 @@ repo() {
   nvim_prefix=$(get_nvim_startup_prefix ~/src/"$1")
   local nvim_command="${nvim_prefix:+$nvim_prefix && }nvim"
 
-  if [[ "$1" == "front-porch" ]]; then
-    echo session "$restart_flag" "$1" "$HOME/src/$1/" "$nvim_command" "ls" "peach db proxy prod"
-    session "$restart_flag" "$1" "$HOME/src/$1/" "$nvim_command" "ls" "peach db proxy prod"
+  if [[ "$1" == "dotfiles" ]]; then
+    # Define an array of session windows for better readability
+    local session_windows=(
+      "config::cd .config && $nvim_command ."
+      "local::cd .local && $nvim_command ."
+      "scratch::c"
+    )
+
+    # Join the array elements with spaces for the echo command
+    echo session "$restart_flag" "$1" "$HOME/src/$1/" "${session_windows[@]}"
+
+    # Execute the session command with the same windows
+    session "$restart_flag" "$1" "$HOME/src/$1/" "${session_windows[@]}"
   elif [[ "$1" == "valon" ]]; then
     local fp_prefix
     fp_prefix=$(get_nvim_startup_prefix ~/src/"$1"/front-porch)
@@ -50,12 +60,27 @@ repo() {
     local web_prefix
     web_prefix=$(get_nvim_startup_prefix ~/src/"$1"/web)
 
-    # Combine prefixes for nvim command
-    local combined_prefix="${fp_prefix:+$fp_prefix && }${web_prefix:+$web_prefix && }"
-    local combined_nvim_command="${combined_prefix}nvim"
+    # Create separate nvim commands for each directory
+    local fp_nvim_command="${fp_prefix:+$fp_prefix && }nvim"
+    local web_nvim_command="${web_prefix:+$web_prefix && }nvim"
 
-    echo session "$restart_flag" "$1" "$HOME/src/$1/" "nvim::$combined_nvim_command" "prod_db_proxy::cd front-porch && peach db proxy prod" "npm::cd web && make env-local && npm run dev" "peach_dev::cd front-porch && peach dev"
-    session "$restart_flag" "$1" "$HOME/src/$1/" "nvim::$combined_nvim_command" "prod_db_proxy::cd front-porch && peach db proxy prod" "npm::cd web && make env-local && npm run dev" "peach_dev::cd front-porch && peach dev"
+    # Define an array of session windows for better readability
+    local session_windows=(
+      "front-porch::cd front-porch && $fp_nvim_command"
+      "web::cd web && $web_nvim_command"
+      "scratch::cd front-porch"
+      "npm::cd web && make env-local && npm run dev"
+      "peach_dev::kill -9 $(lsof -ti :8080) && cd front-porch && peach dev"
+      "dev_db_proxy::cd front-porch && peach db proxy dev"
+      "stage_db_proxy::cd front-porch && peach db proxy stage"
+      "prod_db_proxy::cd front-porch && peach db proxy prod"
+    )
+
+    # Join the array elements with spaces for the echo command
+    echo session "$restart_flag" "$1" "$HOME/src/$1/" "${session_windows[@]}"
+
+    # Execute the session command with the same windows
+    session "$restart_flag" "$1" "$HOME/src/$1/" "${session_windows[@]}"
   else
     echo session "$restart_flag" "$1" "$HOME/src/$1/" "$nvim_command" "ls"
     session "$restart_flag" "$1" "$HOME/src/$1/" "$nvim_command" "ls"

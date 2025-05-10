@@ -1,26 +1,19 @@
 #!/bin/bash
 
-# Check if the prefix is provided as an argument, or use the JIRA_PREFIX environment variable
-if [ -n "$1" ]; then
-  prefix=$1
-elif [ -n "$JIRA_PREFIX" ]; then
-  prefix=$JIRA_PREFIX
-else
-  prefix="fa"
-fi
-
-# Convert the prefix to uppercase using 'tr' for compatibility
-prefix_upper=$(echo "$prefix" | tr 'a-z' 'A-Z')
-
 # Get the current branch name
 branch_name=$(git rev-parse --abbrev-ref HEAD)
 
-# Use regex to extract the ticket ID based on the provided or environment-defined prefix
-if [[ $branch_name =~ $prefix([0-9]+) ]]; then
-  ticket_id="${BASH_REMATCH[1]}"  # Extracted ticket number
-  url="https://valon-mortgage.atlassian.net/browse/${prefix_upper}-$ticket_id"
-  open "$url"  # This will open the URL in the default browser
-else
-  echo "No valid ticket ID found in branch name using prefix '$prefix'."
-fi
+# Extract the prefix and ticket number from the branch name
+# This regex looks for alphabetic characters followed by numbers
+if [[ $branch_name =~ ([[:alpha:]]+)-?([0-9]+) ]]; then
+  prefix="${BASH_REMATCH[1]}"
+  ticket_id="${BASH_REMATCH[2]}"
 
+  # Convert the prefix to uppercase using tr with proper character classes
+  prefix_upper=$(echo "$prefix" | tr '[:lower:]' '[:upper:]')
+
+  url="https://valon-mortgage.atlassian.net/browse/${prefix_upper}-$ticket_id"
+  open "$url" # This will open the URL in the default browser
+else
+  echo "No valid ticket ID found in branch name. Expected format: prefix followed by numbers."
+fi
