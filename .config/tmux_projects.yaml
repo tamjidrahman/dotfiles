@@ -1,0 +1,42 @@
+project_root: ~/src
+
+valon:
+  dir: ~/src/valon
+  windows:
+    - name: front-porch
+      command: cd front-porch && nvim
+    - name: web
+      command: cd web && nvim
+    - name: scratch
+      command: cd front-porch
+    - name: npm
+      command: cd web && make env-local && npm run dev
+    - name: peach_dev
+      command: kill -9 $(lsof -ti :8080) && cd front-porch && peach dev
+    - name: dev_db_proxy
+      command: cd front-porch && peach db proxy dev
+    - name: stage_db_proxy
+      command: cd front-porch && peach db proxy stage
+    - name: prod_db_proxy
+      command: cd front-porch && peach db proxy prod
+
+dotfiles:
+  dir: ~/src/dotfiles
+  windows:
+    - name: config
+      command: cd .config && nvim .
+    - name: local
+      command: cd .local && nvim .
+    - name: scratch
+      command: c
+home:
+  dir: ~/src/home
+  windows:
+    - name: nvim
+      command: "nvim ."
+
+default:
+  dir: "{{project_root}}/{{project}}"
+  windows:
+    - name: editor
+      command: "nvim {{project}}"

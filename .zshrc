@@ -100,10 +100,11 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # ---- Custom Autocompletions ----
 # Repo autocomplete
-source ~/.local/bin/repo
+~/.local/bin/repo install-autocomplete > /dev/null 2>&1
+source ~/.local/bin/repo-completion.sh
 
-# Session autocomplete
-source ~/.local/bin/session-completion.sh
+# # Session autocomplete
+# source ~/.local/bin/session-completion.sh
 
 
 # ---- ZSH Completions from Typer ----
