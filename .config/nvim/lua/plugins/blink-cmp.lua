@@ -28,17 +28,6 @@ return {
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<C-e>"] = { "hide", "fallback" },
     },
-    completion = {
-      menu = {
-        border = "rounded",
-        winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
-      },
-      documentation = {
-        window = {
-          border = "rounded",
-        },
-      },
-    },
 
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -53,7 +42,7 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { "codecompanion", "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "path", "snippets", "buffer" },
     },
   },
   opts_extend = { "sources.default" },
