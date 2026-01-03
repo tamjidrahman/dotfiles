@@ -1,7 +1,6 @@
 return {
   "saghen/blink.cmp",
   -- optional: provides snippets for the snippet source
-
   dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
   -- use a release tag to download pre-built binaries
   version = "*",
@@ -54,8 +53,23 @@ return {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      -- Avante.nvim compatibility sources
-      compat = { "avante_commands", "avante_mentions", "avante_files" },
+      providers = {
+        avante_commands = {
+          name = "avante_commands",
+          module = "blink.compat.source",
+          score_offset = 100,
+        },
+        avante_mentions = {
+          name = "avante_mentions",
+          module = "blink.compat.source",
+          score_offset = 100,
+        },
+        avante_files = {
+          name = "avante_files",
+          module = "blink.compat.source",
+          score_offset = 100,
+        },
+      },
     },
   },
   opts_extend = { "sources.default" },
